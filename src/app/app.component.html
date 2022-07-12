@@ -1,0 +1,35 @@
+<div class="container">
+  <h1 class="my-2" i18n="@@Test">Pageselector Test</h1>
+  <div class="row">
+    <div class="col-7">
+      <label for="pageselector" i18="Page">Page</label>
+      <ngb-pagination
+        id="pageselector"
+        [collectionSize]="collectionSize"
+        [pageSize]="pageSize"
+        [page]="page"
+        [maxSize]="7"
+        (pageChange)="setPage($event)"
+        [rotate]="true"
+      >
+      </ngb-pagination>
+    </div>
+
+    <div class="col-3">
+      <div class="form-group">
+        <label for="numPerPageOptions" i18n="@@per_page">Per Page</label>
+        <select
+          class="form-select"
+          [(ngModel)]="pageSize"
+          id="numPerPageOptions"
+          (change)="selectChange($event)"
+        >
+          <option *ngFor="let n of numberPerPageOptions" [value]="n">
+            {{ n }}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+  Showing page: {{ page }}
+</div>
